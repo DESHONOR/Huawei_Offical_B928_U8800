@@ -25,9 +25,7 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# /* < DTS2012021302632 lixiangyu 00111074 20120213 begin */
 # move all the cpu related parameters in file init.qcom.post_boot.sh 
-# /* DTS2012021302632 lixiangyu 00111074 20120213 end > */
 #
 # For controlling console and shell on console on 8960 - perist.serial.enable 8960
 # On other target use default ro.debuggable property.
@@ -128,33 +126,6 @@ do
 done
 
 #
-# Update USB serial number if passed from command line
-#
-# /*< DTS2012011801998 chenxi 20120203 begin */
-# /* we get the blutooth addr from cmdline directly, so we do not use this code */
-# serialnum=`getprop ro.serialno`
-# case "$serialnum" in
-#     "") ;; #Do nothing, use default serial number or check for persist one below
-#     * )
-#     echo "$serialnum" > /sys/class/android_usb/android0/iSerial
-# esac
-# /* DTS2012011801998 chenxi 20120203 end >*/
-
-#
-# Allow unique persistent serial numbers for devices connected via usb
-# User needs to set unique usb serial number to persist.usb.serialno
-#
-# /*< DTS2012011801998 chenxi 20120203 begin */
-# /* we get the blutooth addr from cmdline directly, so we do not use this code */
-# serialno=`getprop persist.usb.serialno`
-# case "$serialno" in
-#     "") ;; #Do nothing here
-#     * )
-#     echo "$serialno" > /sys/class/android_usb/android0/iSerial
-# esac
-# /* DTS2012011801998 chenxi 20120203 end >*/
-
-#
 # Allow persistent usb charging disabling
 # User needs to set usb charging disabled in persist.usb.chgdisabled
 #
@@ -174,10 +145,8 @@ case "$usbchgdisabled" in
     esac
 esac
 
-# /*< DTS2010102301151 liyuping liliang  20101122 begin */
 # enable hwvefs daemon process.
 /system/bin/hwvefs /data/hwvefs -o allow_other &
-# /* DTS2010102301151 liyuping liliang  20101122 end > */
 #
 # Allow USB enumeration with default PID/VID
 #
@@ -224,9 +193,7 @@ case "$usb_config" in
     ;;
     * ) ;; #USB persist config exists, do nothing
 esac
-/* < DTS2011031705399 renxigang 20110317 begin */
 /system/bin/write_NV_114
-/* DTS2011031705399 renxigang 20110317 end > */
 
 #
 # Start gpsone_daemon for SVLTE Type I & II devices

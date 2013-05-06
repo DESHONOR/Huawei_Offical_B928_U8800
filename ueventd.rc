@@ -7,9 +7,7 @@
 /dev/urandom              0666   root       root
 /dev/ashmem               0666   root       root
 /dev/binder               0666   root       root
-#/* < DTS2011072705129  xiangxu 20110728 begin */
 /dev/hw_led        	  0740   system     system
-#/* DTS2011072705129  xiangxu 20110728 end > */ 
 /dev/rtc0                 0600   system     system
 
 # logger should be world writable (for logging) but not readable
@@ -40,12 +38,7 @@
 /dev/uinput               0660   system     bluetooth
 /dev/alarm                0664   system     radio
 /dev/tty0                 0660   root       system
-#/* < DTS2011052606009 jiaxianghong 20110527 begin */
-# /*< DTS2011051901683 lijianzhao 20110519 begin */
-# /* change popedom of fb1 to system */
 /dev/graphics/fb1         0660   system     graphics
-# /* DTS2011051901683 lijianzhao 20110519 end >*/
-#/* < DTS2011052606009 jiaxianghong 20110527 end */
 /dev/sdio_tty_ciq_00      0660   system     system
 /dev/graphics/*           0660   system     graphics
 /dev/msm_hw3dm            0660   system     graphics
@@ -58,9 +51,7 @@
 /dev/pmem_adsp*           0660   system     audio
 /dev/pmem_smipool*        0660   system     camera
 /dev/pmem_camera*         0660   system     camera
-#/*<DTS2010072602089 haiwenhui 20100726 begin*/
 /dev/oncrpc/*             0666   root       system
-#/*DTS2010072602089 haiwenhui 20100726 end>*/
 /dev/adsp/*               0660   system     audio
 /dev/snd/*                0660   system     audio
 /dev/mt9t013              0660   system     system
@@ -81,10 +72,7 @@
 /dev/msm_pcm_out*         0660   system     audio
 /dev/msm_pcm_in*          0660   system     audio
 /dev/msm_mvs              0660   system     audio
-#/* <DTS2012022004502 leiheipingKF66178 20120220 begin */
-#enable radio program access msm_voicememo
 /dev/msm_voicememo        0666   system     audio
-#/* DTS2012022004502 leiheipingKF66178 20120220 end> */
 /dev/msm_pcm_ctl*         0660   system     audio
 /dev/msm_snd*             0660   system     audio
 /dev/msm_mp3*             0660   system     audio
@@ -106,9 +94,7 @@
 /dev/smd2                 0660   bluetooth      bluetooth
 /dev/smd0                 0640   radio      radio
 /dev/smd7                 0640   radio      radio
-#/* < DTS2011070601052 zhaojunmin 20110705 begin */
 /dev/smd17                0600   system     system
-#/* DTS2011070601052 zhaojunmin 20110705 end */
 /dev/smdcntl0             0640   radio      radio
 /dev/smdcntl1             0640   radio      radio
 /dev/smdcntl2             0640   radio      radio
@@ -184,34 +170,11 @@
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
 /sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
 #permissions for sensors
-#/* < DTS2012043000325 lishubin 20120510 begin */
-#/* delete event for mmcblk0p5 mode */
-#/* DTS2012043000325 lishubin 20120510 end > */
-#/* <DTS2011072601736 weizhonghui  20110809 begin */ 
 /dev/block/mmcblk0p7      0660  system       system
-#/* DTS2011072601736 weizhonghui  20110809 end > */
-#/* DTS2011082704500 weizhonghui  20110827 end > */
 /dev/hw_extern_sdcard     0444  sdcard_rw    sdcard_rw
-#/* <DTS2011062802725 zhengzhechu 20110630 begin */
 /dev/hw_extern_sdcardMounted 0644	sdcard_rw   sdcard_rw
-#/* DTS2011062802725 zhengzhechu 20110630 end> */
-#/dev/phudiag              0664  system       system
 /dev/smem_sleep_log       0664	system       system
-#/* DTS2011041700393 lijianzhao 20110417 end >*/
-#/* < DTS2011051001634 caomingxing 20110510 begin */
-#/* < DTS2011031800077 yuezenglong 20110318 begin */
-#/* < DTS2011021601598 yuezenglong 20110216 begin */
 /dev/pn544                  0660   root   nfc
-#/* DTS2011021601598 yuezenglong 20110216 end > */
-#/* DTS2011031800077 yuezenglong 20110318 end >*/
-#/* DTS2011051001634 caomingxing 20110510 end > */
 /dev/msm_dsps             0660  system       system
-#/*< DTS2012021003176 yanzhijun 20120210 begin */
-# merge DTS2011110800980 fangxinyong 
 /dev/key_test              0664   system   system
-#/* DTS2012021003176 yanzhijun 20120210 end >*/ 
-#/* <DTS2012041003722 sibingsong 20120410 begin */
-#/* < DTS2012030604199 tangying 20120306 begin */
 /dev/hw_led            0740   system     system 
-#/* DTS2012030604199 tangying 20120306 end > */
-#/* DTS2012041003722 sibingsong 20120410 end> */
