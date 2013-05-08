@@ -132,7 +132,7 @@ ro.opengles.version=131072
 #
 # system prop for wlan Networking
 #
-wifi.interface=eth0
+wifi.interface=wlan0
 #/* zhuwenying wifi end  */
 
 #
