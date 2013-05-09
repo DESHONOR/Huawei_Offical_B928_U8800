@@ -68,6 +68,11 @@ on boot
     #port-bridge
     chmod 0660 /dev/smd0
     chown system system /dev/smd0
+    chmod 0660 /dev/smd7
+    chown bluetooth bluetooth /dev/smd7
+    
+    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
+    chmod 2770 /dev/socket/qmux_bluetooth
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
@@ -176,7 +181,6 @@ on property:init.svc.wpa_supplicant=stopped
 
 on property:bluetooth.isEnabled=true
     start btwlancoex
-    start amp_load
     write /sys/class/bluetooth/hci0/idle_timeout 7000
 
 on property:bluetooth.isEnabled=false
@@ -191,11 +195,9 @@ on property:ro.emmc=1
     start rmt_storage
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
-    class late_start
     user bluetooth
-    group qcom_oncrpc bluetooth net_bt_admin
+    group qcom_oncrpc bluetooth net_bt_admin system
     disabled
-    oneshot
 
 service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
     class late_start

@@ -934,18 +934,6 @@ service iprenew_brcm-pan /system/bin/dhcpcd -n
         disabled
         oneshot
 
-service btld /system/bin/logwrapper /system/bin/btld -lpm 1 -hb 3000000 -hp /dev/ttyHS0
-    user bluetooth system
-    group bluetooth net_bt_admin system
-    disabled
-    oneshot
-
-on property:service.brcm.bt.soft_onoff=1
-    start btld
-
-on property:service.brcm.bt.soft_onoff=0
-    stop btld
-
 #STOPSHIP: Remove logwrapper and -d option before production
 service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -d -n
     class main
@@ -955,23 +943,6 @@ service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -d -n
 # let bluetoothd drop uid to bluetooth with the right linux capabilities
     group bluetooth net_bt_admin misc
     disabled
-    
-service hci_dev_up /system/bin/hci_dev_state --dev_up
-    user root
-    group bluetooth system
-    disabled 
-    oneshot
-    
-service hci_dev_down /system/bin/hci_dev_state --dev_down
-    user root
-    group bluetooth system
-    disabled 
-    oneshot    
-service BtWiRfServer /system/xbin/RfTest
-    user root
-    group bluetooth net_bt_admin system  
-    disabled
-    oneshot
 
 service rmt_oeminfo /system/bin/rmt_oeminfo
     class core

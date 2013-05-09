@@ -178,3 +178,4 @@
 /dev/msm_dsps             0660  system       system
 /dev/key_test              0664   system   system
 /dev/hw_led            0740   system     system 
+/dev/rfcomm0              0660   bluetooth   bluetooth
