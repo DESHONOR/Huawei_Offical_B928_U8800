@@ -916,11 +916,6 @@ service akm8962 /system/bin/akmd8962
 service oem_rpc_svc /system/bin/oem_rpc_svc
     class core
 
-service bcm_hciattach /system/bin/sh /system/etc/bluetooth/init.bcm.bt.sh
-    user bluetooth
-    group qcom_oncrpc bluetooth net_bt_admin system
-    disabled 
-
 service rmt_storage /system/bin/rmt_storage
     class core
     
