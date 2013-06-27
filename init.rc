@@ -963,6 +963,9 @@ service RescueStarter /system/bin/RescueStarter
     group input graphics
     disabled
 
+service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+	oneshot
+
 on property:ro.RescueStarter=1
     start RescueStarter
 
